@@ -54,9 +54,8 @@
 
 -(void)updateDownloadedStatus:(NSNotification *)notification
 {
-    NSString *downloadsStatus = @"Downloads status:\n";
     float overallDownloaded = overallDownloadSize * [progressAll progress];
-    downloadsStatus = [downloadsStatus stringByAppendingFormat:@"%.1f/%.1f MB - overall\n", overallDownloaded, overallDownloadSize];
+    NSString *downloadsStatus = [NSString stringWithFormat:@"%.1f/%.1f MB - Overall\n\n", overallDownloaded, overallDownloadSize];
     for (id key in downloadsSize) {
         float needToDownload = [[downloadsSize objectForKey:key] floatValue];
         float downloaded = needToDownload * [[self getProgressViewForKey:key] progress];
