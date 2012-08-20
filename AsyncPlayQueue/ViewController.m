@@ -118,7 +118,7 @@
     if (downloadQueue == nil)
         downloadQueue = [[ASINetworkQueue alloc] init];
     
-	[downloadQueue reset];
+    [downloadQueue reset];
 	[downloadQueue setDownloadProgressDelegate:progressAll];
 	[downloadQueue setRequestDidFinishSelector:@selector(downloadCompleted:)];
 	[downloadQueue setRequestDidFailSelector:@selector(downloadFailed:)];
