@@ -12,10 +12,12 @@
 
 @implementation AppDelegate
 
+@synthesize viewController, window;
+
 - (void)dealloc
 {
-    [_window release];
-    [_viewController release];
+    [window release];
+    [viewController release];
     [super dealloc];
 }
 

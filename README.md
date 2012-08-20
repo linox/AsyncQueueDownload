@@ -1,5 +1,6 @@
 AsyncQueueDownload
 ==================
+![Alt text](screen_asyncqueue.png)
 AsyncQueueDownload is a small example of how you may use ASIHTTPRequest and ASINetworkQueue to asynchronously download multiple files, track status of those downloads and resume interrupted downloads. Part of this example may be used as a simple wrapper around ASIHTTRequest classes. 
 
 To start downloading files you need to initialise NSMutableDictionary *downloadStack with your file names and URLs and then pass it to downloadFiles: function. When a file is downloaded it is removed from the download stack. You get "ASIQueueDownloadCompleted" notification as soon as download stack is empty.
