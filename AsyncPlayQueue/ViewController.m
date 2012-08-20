@@ -119,14 +119,14 @@
         downloadQueue = [[ASINetworkQueue alloc] init];
     
     [downloadQueue reset];
-	[downloadQueue setDownloadProgressDelegate:progressAll];
-	[downloadQueue setRequestDidFinishSelector:@selector(downloadCompleted:)];
-	[downloadQueue setRequestDidFailSelector:@selector(downloadFailed:)];
-	[downloadQueue setShowAccurateProgress:YES];
-	[downloadQueue setDelegate:self]; 
+    [downloadQueue setDownloadProgressDelegate:progressAll];
+    [downloadQueue setRequestDidFinishSelector:@selector(downloadCompleted:)];
+    [downloadQueue setRequestDidFailSelector:@selector(downloadFailed:)];
+    [downloadQueue setShowAccurateProgress:YES];
+    [downloadQueue setDelegate:self]; 
     
     // Add download requests to queue
-	for (id key in files) {
+    for (id key in files) {
         NSURL *url = [NSURL URLWithString:[files objectForKey:key]];
         NSString *file = [NSString stringWithFormat:@"%@.zip", key]; // Wrong usage of gzip here
         NSString *downloadPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:file];
