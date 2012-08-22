@@ -67,11 +67,11 @@
 -(void)getFilesToDownload:(NSMutableDictionary *)dict
 {
     // Provide your own implemetation
-    [dict setValue:@"http://api.lacos.ru/data/Catalog_3170.gzip" forKey:@"Calalog_3170"];
-    [dict setValue:@"http://api.lacos.ru/data/Gallery.gzip" forKey:@"Gallery"];
-    [dict setValue:@"http://api.lacos.ru/data/Products.gzip" forKey:@"Products"];
-    [dict setValue:@"http://api.lacos.ru/data/Cliche.gzip" forKey:@"Cliche"];
-    [dict setValue:@"http://api.lacos.ru/data/Main.gzip" forKey:@"Main"];
+    [dict setValue:@"http://api.lacos.ru/data/Catalog_3170.gzip" forKey:@"Calalog_3170.gzip"];
+    [dict setValue:@"http://api.lacos.ru/data/Gallery.gzip" forKey:@"Gallery.gzip"];
+    [dict setValue:@"http://api.lacos.ru/data/Products.gzip" forKey:@"Products.gzip"];
+    [dict setValue:@"http://api.lacos.ru/data/Cliche.gzip" forKey:@"Cliche.gzip"];
+    [dict setValue:@"http://api.lacos.ru/data/Main.gzip" forKey:@"Main.gzip"];
 }
                                                                              
 -(void)processDownloadedFiles:(NSNotification *)notification
@@ -128,12 +128,11 @@
     // Add download requests to queue
     for (id key in files) {
         NSURL *url = [NSURL URLWithString:[files objectForKey:key]];
-        NSString *file = [NSString stringWithFormat:@"%@.zip", key]; // Wrong usage of gzip here
+        NSString *file = key;
         NSString *downloadPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:file];
         NSString *tempPath = [downloadPath stringByAppendingString:@".download"];
         
         ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:url];
-        [request setAllowCompressedResponse:YES];
         [request setDownloadDestinationPath:downloadPath];
         [request setTemporaryFileDownloadPath:tempPath];
         [request setShouldContinueWhenAppEntersBackground:YES];
